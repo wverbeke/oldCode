@@ -1,0 +1,12 @@
+CC=g++
+CFLAGS= -Wl,--no-as-needed
+LDFLAGS=`root-config --glibs --cflags`
+SOURCES= btagEff.cc trilTree.cc
+OBJECTS=$(SOURCES:.cc=.o)
+EXECUTABLE= btagEff
+
+all: 
+	$(CC) $(CFLAGS) $(SOURCES) $(LDFLAGS) -o $(EXECUTABLE)
+	
+clean:
+	rm -rf *o $(EXECUTABLE)

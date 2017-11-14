@@ -1,0 +1,12 @@
+CC=g++
+CFLAGS= -Wl,--no-as-needed
+LDFLAGS=`root-config --glibs --cflags`
+SOURCES= MultilepSUSYfunc.cc lifeTimeCorrection_3tau.cc  tdrstyle.cc trilTree.cc trilSelection.cc plotCode.cc ../bTag/BTagCalibrationStandalone.cc hnlTools.cc
+OBJECTS=$(SOURCES:.cc=.o)
+EXECUTABLE= lifetime_3tau
+
+all: 
+	$(CC) $(CFLAGS) $(SOURCES) $(LDFLAGS) -o $(EXECUTABLE)
+	
+clean:
+	rm -rf *o $(EXECUTABLE)

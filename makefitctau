@@ -1,0 +1,12 @@
+CC=g++
+CFLAGS= -Wl,--no-as-needed
+LDFLAGS=`root-config --glibs --cflags`
+SOURCES= MultilepSUSYfunc.cc fitcTau.cc  tdrstyle.cc trilTree.cc trilSelection.cc plotCode.cc ../bTag/BTagCalibrationStandalone.cc hnlTools.cc
+OBJECTS=$(SOURCES:.cc=.o)
+EXECUTABLE= fitctau
+
+all: 
+	$(CC) $(CFLAGS) $(SOURCES) $(LDFLAGS) -o $(EXECUTABLE)
+	
+clean:
+	rm -rf *o $(EXECUTABLE)

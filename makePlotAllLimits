@@ -1,0 +1,12 @@
+ CC=g++
+CFLAGS= -Wl,--no-as-needed
+LDFLAGS=`root-config --glibs --cflags`
+SOURCES= plotAllLimits.cc tdrstyle.cc
+OBJECTS=$(SOURCES:.cc=.o)
+EXECUTABLE= plotAllLimits 
+
+all: 
+	$(CC) $(CFLAGS) $(SOURCES) $(LDFLAGS) -o $(EXECUTABLE)
+	
+clean:
+	rm -rf *o $(EXECUTABLE)

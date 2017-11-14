@@ -1,0 +1,12 @@
+CC=g++
+CFLAGS= -Wl,--no-as-needed
+LDFLAGS=`root-config --glibs --cflags`
+SOURCES= MultilepSUSYfunc.cc FRTuneQCD.cc plotCode.cc tdrstyle.cc trilTree.cc trilSelection.cc ../bTag/BTagCalibrationStandalone.cc
+OBJECTS=$(SOURCES:.cc=.o)
+EXECUTABLE= frtune
+
+all: 
+	$(CC) $(CFLAGS) $(SOURCES) $(LDFLAGS) -o $(EXECUTABLE)
+	
+clean:
+	rm -rf *o $(EXECUTABLE)
